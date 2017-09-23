@@ -591,6 +591,8 @@ SystemProcessorInformation(
 
         if (strcmp(Signature, "Microsoft Hv") == 0)
             SystemViridianInformation(EAX - 0x40000000);
+        if (strcmp(Signature, "Wetware Labs") == 0)
+            SystemViridianInformation(EAX - 0x40000000);
     }
 
     Info("====> (%u:%u)\n", ProcNumber.Group, ProcNumber.Number);

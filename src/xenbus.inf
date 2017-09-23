@@ -75,6 +75,7 @@ xenbus_monitor_@MAJOR_VERSION@_@MINOR_VERSION@_@MICRO_VERSION@_@BUILD_NUMBER@.dl
 %XenBusName%		=XenBus_Inst,	PCI\VEN_5853&DEV_@VENDOR_DEVICE_ID@&SUBSYS_@VENDOR_DEVICE_ID@5853&REV_01
 %XenBusName%		=XenBus_Inst,	PCI\VEN_5853&DEV_0002
 %XenBusName%		=XenBus_Inst,	PCI\VEN_5853&DEV_0001
+%XenBusName%		=XenBus_Inst,	PCI\VEN_BEEF&DEV_0001
 
 [XenBus_Inst] 
 CopyFiles=XenBus_CopyFiles

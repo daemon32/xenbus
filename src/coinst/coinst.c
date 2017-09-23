@@ -515,6 +515,7 @@ fail1:
 }
 
 #define XEN_PLATFORM_PCI_DEVICE_STR         "VEN_5853&DEV_0001"
+#define XEN_SPOOF_PCI_DEVICE_STR            "VEN_BEEF&DEV_0001"
 #define XENSERVER_PLATFORM_PCI_DEVICE_STR   "VEN_5853&DEV_0002"
 
 static BOOLEAN
@@ -820,6 +821,13 @@ MatchExistingDriver(
     Success = GetDeviceKeyName("PCI",
                                XEN_PLATFORM_PCI_DEVICE_STR,
                                &DeviceKeyName);
+    if (!Success)
+    {
+        Success = GetDeviceKeyName("PCI",
+                               XEN_SPOOF_PCI_DEVICE_STR,
+                               &DeviceKeyName);
+    }
+
     if (!Success)
         goto fail1;
 

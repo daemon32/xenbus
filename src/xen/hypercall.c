@@ -100,6 +100,9 @@ HypercallInitialize(
         if (strcmp(Signature, "XenVMMXenVMM") == 0 &&
             EAX >= XenBaseLeaf + 2)
             break;
+        if (strcmp(Signature, "ZenZenZenZen") == 0 &&
+            EAX >= XenBaseLeaf + 2)
+            break;
             
         XenBaseLeaf += 0x100;
         

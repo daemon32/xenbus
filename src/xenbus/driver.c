@@ -383,6 +383,7 @@ fail1:
 
 static const CHAR *DriverLegacyDevicePrefix[] = {
     "PCI\\VEN_5853&DEV_0001",
+    "PCI\\VEN_BEEF&DEV_0001",
     "PCI\\VEN_5853&DEV_0002"
 };
 
@@ -410,6 +411,9 @@ static const CHAR *DriverVendorDeviceID =
     NULL;
 #endif
 
+static const CHAR *DriverVendorDeviceIDSpoof =
+    "PCI\\VEN_BEEF&DEV_0001&SUBSYS_C000FEED&REV_01"; 
+
 #define ENUM_PATH "\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Enum"
 
 static FORCEINLINE BOOLEAN
@@ -429,6 +433,14 @@ __DriverIsVendorDevicePresent(
                                 ENUM_PATH,
                                 KEY_READ,
                                 &EnumKey);
+    if (!NT_SUCCESS(status))
+    {
+        status = RegistryOpenSubKey(EnumKey,
+                                    (PCHAR)DriverVendorDeviceIDSpoof,
+                                    KEY_READ,
+                                    &DeviceKey);
+    }
+
     if (!NT_SUCCESS(status))
         goto fail1;
 
