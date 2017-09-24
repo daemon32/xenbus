@@ -412,7 +412,7 @@ static const CHAR *DriverVendorDeviceID =
 #endif
 
 static const CHAR *DriverVendorDeviceIDSpoof =
-    "PCI\\VEN_BEEF&DEV_0001&SUBSYS_C000FEED&REV_01"; 
+    "PCI\\VEN_BEEF&DEV_0001&SUBSYS_C000BEEF&REV_01"; 
 
 #define ENUM_PATH "\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Enum"
 

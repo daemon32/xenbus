@@ -471,15 +471,12 @@ FdoGetBusData(
 static FORCEINLINE NTSTATUS
 __FdoSetVendorName(
     IN  PXENBUS_FDO Fdo,
-    IN  USHORT      VendorID,
     IN  USHORT      DeviceID
     )
 {
     NTSTATUS        status;
 
     status = STATUS_NOT_SUPPORTED;
-    if (VendorID != 'XS')
-        goto fail1;
 
     status = RtlStringCbPrintfA(Fdo->VendorName,
                                 MAXNAMELEN,
@@ -489,9 +486,6 @@ __FdoSetVendorName(
     ASSERT(NT_SUCCESS(status));
 
     return STATUS_SUCCESS;
-
-fail1:
-    Error("fail1 (%08x)\n", status);
 
     return status;
 }
@@ -5123,7 +5117,6 @@ FdoCreate(
         goto fail6;
 
     status = __FdoSetVendorName(Fdo,
-                                Header.VendorID,
                                 Header.DeviceID);
     if (!NT_SUCCESS(status))
         goto fail7;
