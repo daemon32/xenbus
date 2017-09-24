@@ -486,8 +486,6 @@ __FdoSetVendorName(
     ASSERT(NT_SUCCESS(status));
 
     return STATUS_SUCCESS;
-
-    return status;
 }
 
 static FORCEINLINE PCHAR
